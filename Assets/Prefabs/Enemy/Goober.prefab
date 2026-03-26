@@ -691,6 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FindHome
   destination: {fileID: 0}
+  enemyDetails: {fileID: 11400000, guid: 5ebb00143fff1ef4393a7820e9503992, type: 2}
 --- !u!136 &6586116068752599461
 CapsuleCollider:
   m_ObjectHideFlags: 0

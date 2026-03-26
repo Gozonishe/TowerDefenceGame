@@ -5,10 +5,14 @@ public class FindHome : MonoBehaviour
 {
     public Transform destination;
     NavMeshAgent ai;
+    public EnemyDetails enemyDetails;
+    int currentHealth;
     void Start()
     {
         ai = GetComponent<NavMeshAgent>();
         ai.SetDestination(destination.position);
+        ai.speed = enemyDetails.speed;
+        currentHealth = enemyDetails.maxHealth;
     }
 
     // Update is called once per frame
