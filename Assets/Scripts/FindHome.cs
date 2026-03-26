@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class FindHome : MonoBehaviour
 {
@@ -7,15 +8,25 @@ public class FindHome : MonoBehaviour
     NavMeshAgent ai;
     public EnemyDetails enemyDetails;
     int currentHealth;
+    public Slider healthBarPrefab;
+    Slider healthBar;
     void Start()
     {
         ai = GetComponent<NavMeshAgent>();
         ai.SetDestination(destination.position);
         ai.speed = enemyDetails.speed;
         currentHealth = enemyDetails.maxHealth;
+        healthBar = Instantiate(healthBarPrefab, this.transform.position, Quaternion.identity);
+        healthBar.transform.SetParent(GameObject.Find("Canvas").transform);
+        healthBar.maxValue = enemyDetails.maxHealth;
+        healthBar.value = enemyDetails.maxHealth;
     }
 
-    // Update is called once per frame
+    public void Hit(int power)
+    {
+        if (healthBar)
+            healthBar.value -= power;
+    }
     void Update()
     {
         if(ai.remainingDistance < 0.5f && ai.hasPath)
@@ -23,6 +34,10 @@ public class FindHome : MonoBehaviour
             LevelManager.RemoveEnemy();
             ai.ResetPath();
             Destroy(this.gameObject, 0.1f);
+        }
+        if(healthBar)
+        {
+            healthBar.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + Vector3.up * 1.3f);
         }
     }
 }
