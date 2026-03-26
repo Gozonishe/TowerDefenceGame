@@ -3,6 +3,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     GameObject currentTarget;
+    FindHome currentTargetCode;
     public GameObject core;
     public GameObject gun;
     Quaternion coreStartRotation;
@@ -13,6 +14,7 @@ public class Shoot : MonoBehaviour
         if(col.gameObject.CompareTag("goob") && currentTarget == null)
         {
             currentTarget = col.gameObject;
+            currentTargetCode = currentTarget.GetComponent<FindHome>();
         }
     }
 
@@ -25,7 +27,13 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         coreStartRotation = core.transform.rotation;
-        gunStartRotation = gun.transform.rotation;
+        gunStartRotation = gun.transform.localRotation;
+    }
+
+    void ShootTarget()
+    {
+        if (currentTarget)
+            currentTargetCode.Hit(1);
     }
 
     void Update()
@@ -50,10 +58,15 @@ public class Shoot : MonoBehaviour
             core.transform.rotation = Quaternion.Slerp(core.transform.rotation,
                                 Quaternion.LookRotation(aimAt - core.transform.position),
                                 Time.deltaTime);
+
+            Vector3 directionToTarget = currentTarget.transform.position - gun.transform.position;
+
+            if(Vector3.Angle(directionToTarget, gun.transform.forward) < 10) // 10 is the accuracy
+                ShootTarget();
         }
         else
         {
-            gun.transform.rotation = Quaternion.Slerp(gun.transform.rotation,
+            gun.transform.localRotation = Quaternion.Slerp(gun.transform.localRotation,
                                                     gunStartRotation,Time.deltaTime);
             core.transform.rotation = Quaternion.Slerp(core.transform.rotation,
                                                     coreStartRotation,

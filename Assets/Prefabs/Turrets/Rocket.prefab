@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 7118131421514408651}
   - component: {fileID: 4401434733327927664}
   - component: {fileID: 7338027647113960465}
+  - component: {fileID: 7662082172579133185}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: turret
@@ -229,6 +230,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.04
   m_Center: {x: 0, y: 0.00044266155, z: 0}
+--- !u!114 &7662082172579133185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021765121306418287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1a7a29b6828b146ac1c1369cacb509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shoot
+  core: {fileID: 346909294705887816}
+  gun: {fileID: 3167073146308076068}
 --- !u!1 &3167073146308076068
 GameObject:
   m_ObjectHideFlags: 0

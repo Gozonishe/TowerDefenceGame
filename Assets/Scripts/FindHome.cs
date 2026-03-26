@@ -25,7 +25,14 @@ public class FindHome : MonoBehaviour
     public void Hit(int power)
     {
         if (healthBar)
+        {
             healthBar.value -= power;
+            if (healthBar.value <= 0)
+            {
+                Destroy(healthBar.gameObject);
+                Destroy(this.gameObject);
+            }
+        }
     }
     void Update()
     {
@@ -33,6 +40,7 @@ public class FindHome : MonoBehaviour
         {
             LevelManager.RemoveEnemy();
             ai.ResetPath();
+            Destroy(healthBar.gameObject);
             Destroy(this.gameObject, 0.1f);
         }
         if(healthBar)

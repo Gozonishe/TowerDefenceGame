@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDetails
   cName: Goob
-  speed: 5
+  speed: 2
   maxHealth: 100

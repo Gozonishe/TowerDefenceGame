@@ -2689,25 +2689,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880282804}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &883317877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2021765121306418287, guid: a5eda6104bcf395448afd758f327befe, type: 3}
-  m_PrefabInstance: {fileID: 2003529976}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &883317883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883317877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e1a7a29b6828b146ac1c1369cacb509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shoot
-  core: {fileID: 1637750303}
-  gun: {fileID: 1734436890}
 --- !u!1 &913740638
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,7 +3259,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5655057210153903514, guid: aee340c22344c1d4cbd3d445906118ae, type: 3}
   homeLocation: {fileID: 1118179187}
   startDelay: 1
-  spawnRate: 0.5
+  spawnRate: 5
   maxCount: 10
 --- !u!208 &1238144599
 NavMeshObstacle:
@@ -4683,11 +4664,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1359924776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1637750303 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 346909294705887816, guid: a5eda6104bcf395448afd758f327befe, type: 3}
-  m_PrefabInstance: {fileID: 2003529976}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1704175309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,11 +4815,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!1 &1734436890 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3167073146308076068, guid: a5eda6104bcf395448afd758f327befe, type: 3}
-  m_PrefabInstance: {fileID: 2003529976}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1791500466
 GameObject:
   m_ObjectHideFlags: 0
@@ -5458,10 +5429,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2021765121306418287, guid: a5eda6104bcf395448afd758f327befe, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 883317883}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5eda6104bcf395448afd758f327befe, type: 3}
 --- !u!1 &2037695064
 GameObject:
