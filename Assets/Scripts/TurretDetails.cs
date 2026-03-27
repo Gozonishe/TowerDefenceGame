@@ -7,4 +7,5 @@ public class TurretDetails : ScriptableObject
     public float accuracy;
     public float turnSpeed;
     public float reloadTime;
+    public float aimingAccuracy;
 }

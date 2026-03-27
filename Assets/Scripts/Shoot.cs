@@ -71,7 +71,7 @@ public class Shoot : MonoBehaviour
 
             Vector3 directionToTarget = currentTarget.transform.position - gun.transform.position;
 
-            if(Vector3.Angle(directionToTarget, gun.transform.forward) < 10) // 10 is the accuracy
+            if(Vector3.Angle(directionToTarget, gun.transform.forward) < turretDetails.aimingAccuracy) // 10 is the accuracy
                 if(Random.Range(0, 100) < turretDetails.accuracy)
                     ShootTarget();
         }
