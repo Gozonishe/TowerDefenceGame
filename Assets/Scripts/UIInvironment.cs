@@ -67,16 +67,16 @@ public class UIInvironment : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (!Physics.Raycast(ray, out hit))
-                return;
-
-            focusObj.transform.position = hit.point;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~(1<< LayerMask.NameToLayer("Turret"))))
+            {
+                focusObj.transform.position = hit.point;
+            }
         }
         else if (focusObj && Input.GetMouseButtonUp(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && 
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~(1 << LayerMask.NameToLayer("Turret"))) && 
                 hit.collider.gameObject.CompareTag("platform") &&
                 hit.normal.Equals(new Vector3(0,1,0)))
             {
@@ -84,7 +84,8 @@ public class UIInvironment : MonoBehaviour
                 focusObj.transform.position = new Vector3(hit.collider.gameObject.transform.position.x,
                                                             focusObj.transform.position.y,
                                                             hit.collider.gameObject.transform.position.z);
-                focusObj.GetComponent<Collider>().enabled = true;
+                focusObj.GetComponent<BoxCollider>().enabled = true;
+                focusObj.GetComponent<SphereCollider>().enabled = true;
             }
             else
                 Destroy(focusObj);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5161220493078518644}
   - component: {fileID: 8538662560251675478}
   - component: {fileID: 2155626831475312924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocket Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7338027647113960465}
   - component: {fileID: 7662082172579133185}
   - component: {fileID: 2276989150794262641}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocket
   m_TagString: turret
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.024826827, y: 0.02482683, z: 0.024594208}
   m_Center: {x: 0, y: 0.01, z: 0}
@@ -227,7 +227,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.04
   m_Center: {x: 0, y: 0.00044266155, z: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 7558015176704174379}
   - component: {fileID: 6958832827223960994}
   - component: {fileID: 5594836082307370664}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocket Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}

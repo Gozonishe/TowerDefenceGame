@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2310060528998606043}
   - component: {fileID: 8958459731053102480}
   - component: {fileID: 254625303199816395}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CubeTurret
   m_TagString: turret
   m_Icon: {fileID: 0}
