@@ -22,7 +22,7 @@ public class UIInvironment : MonoBehaviour
     }
 
 
-    public void CreateGattling()
+    public void CreateGatling()
     {
         itemPrefab = gatlingTurret;
         CreateItemForButton();

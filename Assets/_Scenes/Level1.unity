@@ -995,7 +995,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6212660}
           m_TargetAssemblyTypeName: UIInvironment, Assembly-CSharp
-          m_MethodName: CreateGattling
+          m_MethodName: CreateGatling
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2141,6 +2141,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800793165}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &829023692
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.34829
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5944
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321363041638732219, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045995070448286732, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
+      propertyPath: m_Name
+      value: Gatling
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d6d9666467a6e74ba6c490fa8195f01, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2506,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &940934330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5944
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948864028089286431, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738508002083215830, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
+      propertyPath: m_Name
+      value: Flamer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c71a240f750b58d419d2da978d5b8038, type: 3}
 --- !u!1 &1118179182
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,3 +4634,5 @@ SceneRoots:
   - {fileID: 635663328}
   - {fileID: 2129226138}
   - {fileID: 770624031}
+  - {fileID: 829023692}
+  - {fileID: 940934330}
