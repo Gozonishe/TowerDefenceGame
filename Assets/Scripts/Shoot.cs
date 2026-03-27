@@ -6,8 +6,11 @@ public class Shoot : MonoBehaviour
     FindHome currentTargetCode;
     public GameObject core;
     public GameObject gun;
+    public TurretDetails turretDetails;
     Quaternion coreStartRotation;
     Quaternion gunStartRotation;
+    bool cooldown = true;
+    public AudioSource firingSound;
 
     void OnTriggerEnter(Collider col)
     {
@@ -30,10 +33,18 @@ public class Shoot : MonoBehaviour
         gunStartRotation = gun.transform.localRotation;
     }
 
+    void CoolDown()
+    {
+        cooldown = true;
+    }
+
     void ShootTarget()
     {
-        if (currentTarget)
-            currentTargetCode.Hit(1);
+        if (currentTarget && cooldown)
+            currentTargetCode.Hit((int)turretDetails.damage);
+            firingSound.Play();
+            cooldown = false;
+            Invoke("CoolDown", turretDetails.reloadTime);
     }
 
     void Update()
@@ -43,7 +54,6 @@ public class Shoot : MonoBehaviour
             Vector3 aimAt = new Vector3(currentTarget.transform.position.x,
                                         core.transform.position.y,
                                         currentTarget.transform.position.z);
-            //gun.transform.LookAt(currentTarget.transform.position);
 
             float distToTarget = Vector3.Distance(aimAt, gun.transform.position);
             Vector3 relativeTargetPosition = gun.transform.position +
@@ -53,24 +63,24 @@ public class Shoot : MonoBehaviour
                                 relativeTargetPosition.z);
             gun.transform.rotation = Quaternion.Slerp(gun.transform.rotation,
                                                     Quaternion.LookRotation(relativeTargetPosition - gun.transform.position),
-                                                    Time.deltaTime);
-            //core.transform.LookAt(aimAt);
+                                                    Time.deltaTime * turretDetails.turnSpeed);
+
             core.transform.rotation = Quaternion.Slerp(core.transform.rotation,
                                 Quaternion.LookRotation(aimAt - core.transform.position),
-                                Time.deltaTime);
+                                Time.deltaTime * turretDetails.turnSpeed);
 
             Vector3 directionToTarget = currentTarget.transform.position - gun.transform.position;
 
             if(Vector3.Angle(directionToTarget, gun.transform.forward) < 10) // 10 is the accuracy
-                ShootTarget();
+                if(Random.Range(0, 100) < turretDetails.accuracy)
+                    ShootTarget();
         }
         else
         {
             gun.transform.localRotation = Quaternion.Slerp(gun.transform.localRotation,
-                                                    gunStartRotation,Time.deltaTime);
+                                                    gunStartRotation,Time.deltaTime * turretDetails.turnSpeed);
             core.transform.rotation = Quaternion.Slerp(core.transform.rotation,
-                                                    coreStartRotation,
-                                                    Time.deltaTime);
+                                                    coreStartRotation,Time.deltaTime * turretDetails.turnSpeed);
         }
     }
 }
