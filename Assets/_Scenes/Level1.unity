@@ -561,8 +561,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spawn
   enemyPrefab: {fileID: 5655057210153903514, guid: aee340c22344c1d4cbd3d445906118ae, type: 3}
   homeLocation: {fileID: 1118179187}
-  startDelay: 1
-  spawnRate: 0.5
+  startDelay: 2
+  spawnRate: 5
   maxCount: 10
 --- !u!208 &156599607
 NavMeshObstacle:
@@ -3336,7 +3336,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5655057210153903514, guid: aee340c22344c1d4cbd3d445906118ae, type: 3}
   homeLocation: {fileID: 1118179187}
   startDelay: 1
-  spawnRate: 0.5
+  spawnRate: 1
   maxCount: 10
 --- !u!208 &913740640
 NavMeshObstacle:

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22435214bee97e44698a9da3e60f41a5, type: 3}
   m_Name: FlamerData
   m_EditorClassIdentifier: Assembly-CSharp::TurretDetails
-  damage: 10
+  damage: 50
   accuracy: 60
-  turnSpeed: 3
-  reloadTime: 4
-  aimingAccuracy: 10
+  turnSpeed: 6
+  reloadTime: 2
+  aimingAccuracy: 20

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22435214bee97e44698a9da3e60f41a5, type: 3}
   m_Name: GatlingData
   m_EditorClassIdentifier: Assembly-CSharp::TurretDetails
-  damage: 15
+  damage: 25
   accuracy: 90
-  turnSpeed: 1
+  turnSpeed: 5
   reloadTime: 1
-  aimingAccuracy: 2
+  aimingAccuracy: 25

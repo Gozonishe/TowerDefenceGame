@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22435214bee97e44698a9da3e60f41a5, type: 3}
   m_Name: RocketData
   m_EditorClassIdentifier: Assembly-CSharp::TurretDetails
-  damage: 5
+  damage: 30
   accuracy: 80
-  turnSpeed: 1.5
-  reloadTime: 2
+  turnSpeed: 4
+  reloadTime: 5
   aimingAccuracy: 20

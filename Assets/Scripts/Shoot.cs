@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class Shoot : MonoBehaviour
 {
     GameObject currentTarget;
@@ -11,6 +11,8 @@ public class Shoot : MonoBehaviour
     Quaternion gunStartRotation;
     bool cooldown = true;
     public AudioSource firingSound;
+    public List<ParticleSystem> particleSystems;
+    public int burstCount;
 
     void OnTriggerEnter(Collider col)
     {
@@ -31,6 +33,8 @@ public class Shoot : MonoBehaviour
     {
         coreStartRotation = core.transform.rotation;
         gunStartRotation = gun.transform.localRotation;
+        foreach(ParticleSystem p in particleSystems)
+            p.Stop();
     }
 
     void CoolDown()
@@ -42,8 +46,13 @@ public class Shoot : MonoBehaviour
     {
         if (currentTarget && cooldown)
             currentTargetCode.Hit((int)turretDetails.damage);
-            firingSound.Play();
-            cooldown = false;
+            if (!firingSound.isPlaying)
+            {
+                firingSound.Play();
+            }
+        foreach (ParticleSystem p in particleSystems)
+                p.Emit(burstCount);
+        cooldown = false;
             Invoke("CoolDown", turretDetails.reloadTime);
     }
 
