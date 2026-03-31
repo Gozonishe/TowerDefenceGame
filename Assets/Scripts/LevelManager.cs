@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public static int numberOfWaves = 3;
     public static int wavesEmitted = 0;
     public static int totalMoney = 0;
+    public static int totalLives = 10;   
     static bool levelOver = false;
     static bool nextWave = false;
 
@@ -18,7 +19,7 @@ public class LevelManager : MonoBehaviour
     public static IObjectPool<ParticleSystem> deathParticlePool;
     void Start()
     {
-        Time.timeScale = 5;
+        Time.timeScale = 1;
         GameObject[] spawnP = GameObject.FindGameObjectsWithTag("spawn");
         spawnPoints = new Spawn[spawnP.Length];
         for (int i = 0; i < spawnP.Length; i++)
@@ -30,6 +31,10 @@ public class LevelManager : MonoBehaviour
         deathParticlePool = new ObjectPool<ParticleSystem>(CreateDeathExplosion, OnTakeFromPool, OnReturnedToPool, null, true, 10, 20);
     }
 
+    public static void OnSpeedChange(int speed)
+    {
+        Time.timeScale = speed;
+    }
     ParticleSystem CreateDeathExplosion()
     {
         ParticleSystem particleSystem = Instantiate(deathParticlePrefab);
@@ -73,6 +78,17 @@ public class LevelManager : MonoBehaviour
                     }
             }
         }
+
+    public static void RemoveLife()
+    {
+        totalLives--;
+        if(totalLives <= 0)
+        {
+            Debug.Log("Level Over");
+            levelOver = true;
+            nextWave = false;
+        }
+    }
 
     void ResetSpawners()
     {

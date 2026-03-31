@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIInvironment : MonoBehaviour
 {
@@ -9,12 +10,31 @@ public class UIInvironment : MonoBehaviour
     public GameObject turretMenu;
     public TMPro.TMP_Text waveText;
     public TMPro.TMP_Text moneyText;
+    public TMPro.TMP_Text livesText;
+    public Button slowSpeed;
+    public Button mediumSpeed;
+    public Button fastSpeed;
 
     GameObject itemPrefab;
     GameObject focusObj;
     void Start()
     {
+        slowSpeed.onClick.AddListener(SlowSpeedClicked);
+        mediumSpeed.onClick.AddListener(MediumSpeedClicked);
+        fastSpeed.onClick.AddListener(FastSpeedClicked);
+    }
 
+    void SlowSpeedClicked()
+    {
+        LevelManager.OnSpeedChange(1);
+    }
+    void MediumSpeedClicked()
+    {
+        LevelManager.OnSpeedChange(5);
+    }
+    void FastSpeedClicked()
+    {
+        LevelManager.OnSpeedChange(10);
     }
 
     public void CreateRocket()
@@ -22,7 +42,6 @@ public class UIInvironment : MonoBehaviour
         itemPrefab = rocketTurret;
         CreateItemForButton();
     }
-
 
     public void CreateGatling()
     {
@@ -56,6 +75,9 @@ public class UIInvironment : MonoBehaviour
             waveText.text = (LevelManager.wavesEmitted + 1) + " of " + LevelManager.numberOfWaves;
 
         moneyText.text = "$" + LevelManager.totalMoney;
+
+        if(LevelManager.totalLives >= 0)
+            livesText.text = "" + LevelManager.totalLives;
 
         if (Input.GetMouseButtonDown(0))
         {
