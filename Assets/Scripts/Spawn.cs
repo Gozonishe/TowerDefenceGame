@@ -10,6 +10,11 @@ public class Spawn : MonoBehaviour
     int enemyCount = 0;
     void Start()
     {
+        Restart();
+    }
+    public void Restart()
+    {
+        enemyCount = 0;
         InvokeRepeating("Spawner", startDelay, spawnRate);
     }
 

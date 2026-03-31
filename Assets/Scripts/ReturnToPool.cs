@@ -14,7 +14,7 @@ public class ReturnToPool : MonoBehaviour
         pool = LevelManager.deathParticlePool;
     }
 
-    void OnEnabled()
+    void OnEnable()
     {
         audioSource.Play();
     }

@@ -563,8 +563,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5655057210153903514, guid: aee340c22344c1d4cbd3d445906118ae, type: 3}
   homeLocation: {fileID: 1118179187}
   startDelay: 2
-  spawnRate: 5
-  maxCount: 10
+  spawnRate: 3
+  maxCount: 5
 --- !u!208 &156599607
 NavMeshObstacle:
   m_ObjectHideFlags: 0

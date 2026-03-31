@@ -3,17 +3,27 @@ using UnityEngine.Pool;
 
 public class LevelManager : MonoBehaviour
 {
-    GameObject[] spawnPoints;
+    Spawn[] spawnPoints;
     static int totalEnemies = 0;
+
+    static int numberOfWaves = 3;
+    static int wavesEmitted = 0;
+    static bool levelOver = false;
+    static bool nextWave = false;
+
+    int timeBetweenWaves = 5;
 
     public ParticleSystem deathParticlePrefab;
     public static IObjectPool<ParticleSystem> deathParticlePool;
     void Start()
     {
-        spawnPoints = GameObject.FindGameObjectsWithTag("spawn");
-        foreach (GameObject sp in spawnPoints)
+        Time.timeScale = 20;
+        GameObject[] spawnP = GameObject.FindGameObjectsWithTag("spawn");
+        spawnPoints = new Spawn[spawnP.Length];
+        for (int i = 0; i < spawnP.Length; i++)
         {
-            totalEnemies += sp.GetComponent<Spawn>().maxCount;
+            spawnPoints[i] = spawnP[i].GetComponent<Spawn>();
+            totalEnemies += spawnPoints[i].maxCount;
         }
 
         deathParticlePool = new ObjectPool<ParticleSystem>(CreateDeathExplosion, OnTakeFromPool, OnReturnedToPool, null, true, 10, 20);
@@ -50,11 +60,34 @@ public class LevelManager : MonoBehaviour
     {
         totalEnemies--;
         if (totalEnemies <= 0)
-            Debug.Log("Level Over");
+            {
+                wavesEmitted++;
+                nextWave = true;
+
+                if (wavesEmitted >= numberOfWaves)
+                    {
+                        Debug.Log("Level Over");
+                        levelOver = true;
+                        nextWave = false;
+                    }
+            }
+        }
+
+    void ResetSpawners()
+    {
+        foreach (Spawn sp in spawnPoints)
+        {
+            totalEnemies += sp.maxCount;
+            sp.Restart();
+        }
     }
 
     void Update()
     {
-        
+        if (nextWave)
+        {
+            nextWave = false;
+            Invoke("ResetSpawners", timeBetweenWaves);
+        }
     }
 }
