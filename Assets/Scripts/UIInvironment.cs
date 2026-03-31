@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class UIInvironment : MonoBehaviour
 {
-    public GameObject rocketTurret;
-    public GameObject gatlingTurret;
-    public GameObject flamerTurret;
+    public Shoot rocketTurret;
+    public Shoot gatlingTurret;
+    public Shoot flamerTurret;
     public GameObject turretMenu;
     public TMPro.TMP_Text waveText;
     public TMPro.TMP_Text moneyText;
@@ -17,6 +17,7 @@ public class UIInvironment : MonoBehaviour
 
     GameObject itemPrefab;
     GameObject focusObj;
+    public AudioSource wrongSound;
     void Start()
     {
         slowSpeed.onClick.AddListener(SlowSpeedClicked);
@@ -39,19 +40,43 @@ public class UIInvironment : MonoBehaviour
 
     public void CreateRocket()
     {
-        itemPrefab = rocketTurret;
-        CreateItemForButton();
+        if(LevelManager.totalMoney >= rocketTurret.turretDetails.cost)
+        {
+            itemPrefab = rocketTurret.gameObject;
+            CreateItemForButton();
+            LevelManager.totalMoney -= rocketTurret.turretDetails.cost;
+        }
+        else
+        {
+            wrongSound.Play();
+        }
     }
 
     public void CreateGatling()
     {
-        itemPrefab = gatlingTurret;
-        CreateItemForButton();
+        if (LevelManager.totalMoney >= gatlingTurret.turretDetails.cost)
+        {
+            itemPrefab = gatlingTurret.gameObject;
+            CreateItemForButton();
+            LevelManager.totalMoney -= gatlingTurret.turretDetails.cost;
+        }
+        else
+        {
+            wrongSound.Play();
+        }
     }
     public void CreateFlamer()
     {
-        itemPrefab = flamerTurret;
-        CreateItemForButton();
+        if (LevelManager.totalMoney >= flamerTurret.turretDetails.cost)
+        {
+            itemPrefab = flamerTurret.gameObject;
+            CreateItemForButton();
+            LevelManager.totalMoney -= flamerTurret.turretDetails.cost;
+        }
+        else
+        {
+            wrongSound.Play();
+        }
     }
 
     public void CloseTurretMenu()
@@ -117,7 +142,10 @@ public class UIInvironment : MonoBehaviour
                 focusObj.GetComponent<SphereCollider>().enabled = true;
             }
             else
+            {
+                LevelManager.totalMoney += focusObj.GetComponent<TurretDetails>().cost;
                 Destroy(focusObj);
+            }
 
             focusObj = null;
         }
