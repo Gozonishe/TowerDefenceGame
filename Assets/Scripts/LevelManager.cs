@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 
     public static int numberOfWaves = 3;
     public static int wavesEmitted = 0;
+    public static int totalMoney = 0;
     static bool levelOver = false;
     static bool nextWave = false;
 
@@ -17,7 +18,7 @@ public class LevelManager : MonoBehaviour
     public static IObjectPool<ParticleSystem> deathParticlePool;
     void Start()
     {
-        Time.timeScale = 20;
+        Time.timeScale = 5;
         GameObject[] spawnP = GameObject.FindGameObjectsWithTag("spawn");
         spawnPoints = new Spawn[spawnP.Length];
         for (int i = 0; i < spawnP.Length; i++)

@@ -8,6 +8,7 @@ public class UIInvironment : MonoBehaviour
     public GameObject flamerTurret;
     public GameObject turretMenu;
     public TMPro.TMP_Text waveText;
+    public TMPro.TMP_Text moneyText;
 
     GameObject itemPrefab;
     GameObject focusObj;
@@ -53,6 +54,8 @@ public class UIInvironment : MonoBehaviour
     {
         if(LevelManager.wavesEmitted < LevelManager.numberOfWaves)
             waveText.text = (LevelManager.wavesEmitted + 1) + " of " + LevelManager.numberOfWaves;
+
+        moneyText.text = "$" + LevelManager.totalMoney;
 
         if (Input.GetMouseButtonDown(0))
         {
