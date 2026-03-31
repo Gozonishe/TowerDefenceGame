@@ -29,6 +29,7 @@ public class FindHome : MonoBehaviour
             healthBar.value -= power;
             if (healthBar.value <= 0)
             {
+                LevelManager.DisplayDeathExplosion(this.transform.position + new Vector3(0,0.5f,0));
                 Destroy(healthBar.gameObject);
                 Destroy(this.gameObject);
             }
