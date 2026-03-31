@@ -6,8 +6,8 @@ public class LevelManager : MonoBehaviour
     Spawn[] spawnPoints;
     static int totalEnemies = 0;
 
-    static int numberOfWaves = 3;
-    static int wavesEmitted = 0;
+    public static int numberOfWaves = 3;
+    public static int wavesEmitted = 0;
     static bool levelOver = false;
     static bool nextWave = false;
 

@@ -7,6 +7,7 @@ public class UIInvironment : MonoBehaviour
     public GameObject gatlingTurret;
     public GameObject flamerTurret;
     public GameObject turretMenu;
+    public TMPro.TMP_Text waveText;
 
     GameObject itemPrefab;
     GameObject focusObj;
@@ -50,6 +51,9 @@ public class UIInvironment : MonoBehaviour
 
     void Update()
     {
+        if(LevelManager.wavesEmitted < LevelManager.numberOfWaves)
+            waveText.text = (LevelManager.wavesEmitted + 1) + " of " + LevelManager.numberOfWaves;
+
         if (Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current.IsPointerOverGameObject()) return;
