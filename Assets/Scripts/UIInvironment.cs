@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIInvironment : MonoBehaviour
 {
@@ -103,6 +104,19 @@ public class UIInvironment : MonoBehaviour
     public void CloseTurretMenu()
     {
         turretMenu.SetActive(false);
+    }
+
+    public void PlayAgain()
+    {
+    LevelManager.totalEnemies = 0;
+    LevelManager.numberOfWaves = 3;
+    LevelManager.wavesEmitted = 0;
+    LevelManager.totalMoney = 500;
+    LevelManager.totalLives = 10;
+    LevelManager.levelOver = false;
+    LevelManager.nextWave = false;
+
+    SceneManager.LoadScene("Level1", LoadSceneMode.Single);
     }
     void CreateItemForButton()
     {
