@@ -14,10 +14,13 @@ public class UIInvironment : MonoBehaviour
     public Button slowSpeed;
     public Button mediumSpeed;
     public Button fastSpeed;
+    public TMPro.TMP_Text upgradeButtonText;
 
     GameObject itemPrefab;
     GameObject focusObj;
     public AudioSource wrongSound;
+
+    private Shoot currentClickedOnTurret;
     void Start()
     {
         slowSpeed.onClick.AddListener(SlowSpeedClicked);
@@ -79,6 +82,24 @@ public class UIInvironment : MonoBehaviour
         }
     }
 
+    public void UpgradeTower()
+    {
+        if (LevelManager.totalMoney >= currentClickedOnTurret.turretDetails.cost)
+        {
+            currentClickedOnTurret.turretDetails.damage += 10;
+            LevelManager.totalMoney -= currentClickedOnTurret.turretDetails.cost;
+            currentClickedOnTurret.turretDetails.cost *= 2;
+            upgradeButtonText.text = "Upgrade" + currentClickedOnTurret.turretDetails.cost;
+        }
+    }
+
+    public void DestroyTower()
+    {
+        LevelManager.totalMoney += Mathf.RoundToInt(currentClickedOnTurret.turretDetails.cost * 0.5f);
+        Destroy(currentClickedOnTurret.gameObject, 0.1f);
+        CloseTurretMenu();
+    }
+
     public void CloseTurretMenu()
     {
         turretMenu.SetActive(false);
@@ -113,7 +134,9 @@ public class UIInvironment : MonoBehaviour
             if (Physics.Raycast(ray, out hit) &&
                 hit.collider.gameObject.CompareTag("turret"))
             {
+                currentClickedOnTurret = hit.collider.gameObject.GetComponent<Shoot>();
                 turretMenu.transform.position = Input.mousePosition;
+                upgradeButtonText.text = "Upgrade" + currentClickedOnTurret.turretDetails.cost;
                 turretMenu.SetActive(true);
             }
         }
