@@ -15,4 +15,4 @@ MonoBehaviour:
   cName: Goob
   speed: 2
   maxHealth: 100
-  reward: 10
+  reward: 5

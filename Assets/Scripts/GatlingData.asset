@@ -17,4 +17,4 @@ MonoBehaviour:
   turnSpeed: 5
   reloadTime: 1
   aimingAccuracy: 25
-  cost: 25
+  cost: 125
