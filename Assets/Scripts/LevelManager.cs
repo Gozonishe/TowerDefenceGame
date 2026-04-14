@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 
     public static int numberOfWaves = 3;
     public static int wavesEmitted = 0;
-    public static int totalMoney = 500;
+    public static int totalMoney = 200;
     public static int totalLives = 10;   
     public static bool levelOver = false;
     public static bool nextWave = false;
