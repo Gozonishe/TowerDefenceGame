@@ -111,7 +111,7 @@ public class UIInvironment : MonoBehaviour
     LevelManager.totalEnemies = 0;
     LevelManager.numberOfWaves = 3;
     LevelManager.wavesEmitted = 0;
-    LevelManager.totalMoney = 200;
+    LevelManager.totalMoney = 220;
     LevelManager.totalLives = 10;
     LevelManager.levelOver = false;
     LevelManager.nextWave = false;
