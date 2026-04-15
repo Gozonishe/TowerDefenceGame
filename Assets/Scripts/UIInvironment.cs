@@ -90,7 +90,7 @@ public class UIInvironment : MonoBehaviour
             currentClickedOnTurret.turretDetails.damage += 10;
             LevelManager.totalMoney -= currentClickedOnTurret.turretDetails.cost;
             currentClickedOnTurret.turretDetails.cost *= 2;
-            upgradeButtonText.text = "Upgrade" + currentClickedOnTurret.turretDetails.cost;
+            upgradeButtonText.text = "Upgrade\n" + currentClickedOnTurret.turretDetails.cost;
         }
     }
 
@@ -150,7 +150,7 @@ public class UIInvironment : MonoBehaviour
             {
                 currentClickedOnTurret = hit.collider.gameObject.GetComponent<Shoot>();
                 turretMenu.transform.position = Input.mousePosition;
-                upgradeButtonText.text = "Upgrade" + currentClickedOnTurret.turretDetails.cost;
+                upgradeButtonText.text = "Upgrade\n" + currentClickedOnTurret.turretDetails.cost;
                 turretMenu.SetActive(true);
             }
         }
